@@ -1,5 +1,8 @@
 # AWS S3 CLI
 
+App works on `lcloud-427-mm` by default.
+Set `BUCKET_NAME` ENV variable to use another bucket.
+
 ## Examples
 
 ### Lists all files in a bucket
