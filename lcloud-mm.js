@@ -22,14 +22,15 @@ program
 program
   .command('list')
   .description('list all files in an S3 Bucket')
-  .action(() => {
-    commands.list(s3);
+  .option("-f, --filter", "regex filter")
+  .action(filter => {
+    commands.list(s3, filter);
   });
 
 program
   .command('upload [file] [target]')
   .description('upload a local file to the S3 bucket')
-  .action(function(file, target) {
+  .action((file, target) => {
     if (file && target) {
       commands.upload(s3, file, target);
     } else {
