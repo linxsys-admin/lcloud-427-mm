@@ -31,7 +31,7 @@ program
   program
     .command('delete [regex]')
     .description('delete all files matching a regex from a bucket')
-    .action((regex) => {
+    .action(regex => {
       if (regex) {
         commands.delete(regex);
       } else {
