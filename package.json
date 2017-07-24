@@ -1,10 +1,14 @@
 {
   "name": "aws-test",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lcloud-mm.js",
+  "bin" : {
+    "lcloud-mm" : "./lcloud-mm.js"
+  },
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.88.0",
+    "commander": "^2.11.0",
     "dotenv": "^4.0.0",
     "lodash": "^4.17.4"
   },
