@@ -12,7 +12,7 @@ program
 program
   .command('list')
   .description('list all files in an S3 Bucket')
-  .option("-f, --filter [filter]", "regex filter")
+  .option("-f, --filter", "regex filter")
   .action(filter => {
     commands.list(filter);
   });
