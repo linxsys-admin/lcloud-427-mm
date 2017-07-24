@@ -4,17 +4,7 @@
 require('dotenv').config();
 const _ = require('lodash');
 const program = require('commander');
-const aws = require('aws-sdk');
 const commands = require('./lib/commands');
-
-const bucketName = 'lcloud-427-mm';
-
-const s3 = new aws.S3({
-  apiVersion: '2006-03-01',
-  params: {
-    Bucket: bucketName
-  }
-});
 
 program
   .version('0.0.1');
@@ -24,7 +14,7 @@ program
   .description('list all files in an S3 Bucket')
   .option("-f, --filter [filter]", "regex filter")
   .action(filter => {
-    commands.list(s3, filter);
+    commands.list(filter);
   });
 
 program
@@ -32,7 +22,7 @@ program
   .description('upload a local file to the S3 bucket')
   .action((file, target) => {
     if (file && target) {
-      commands.upload(s3, file, target);
+      commands.upload(file, target);
     } else {
       console.error('file/target not defined');
     }
@@ -43,7 +33,7 @@ program
     .description('delete all files matching a regex from a bucket')
     .action((regex) => {
       if (regex) {
-        commands.delete(s3, regex);
+        commands.delete(regex);
       } else {
         console.error('regex not defined');
       }
